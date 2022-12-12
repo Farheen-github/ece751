@@ -82,15 +82,19 @@ wire [$clog2(m_in)-1:0] p;
 wire [$clog2(m_in)-1:0] q;
 wire [$clog2(m_in):0]sum;
 wire [k_in-1:0]mm,nn;
+
 LOD_k #(k_in, n_in) u1(.in_a(a),.out_a(l1));
 LOD_k #(k_in, m_in) u2(.in_a(b),.out_a(l2));
+
 P_Encoder_k #(k_in, n_in) u3(.in_a(l1), .out_a(k1));
 P_Encoder_k #(k_in, m_in) u4(.in_a(l2), .out_a(k2));
+
 Mux_16_3_k #(k_in, n_in) u5(.in_a(a), .select(k1), .out(m));
 Mux_16_3_k #(k_in, m_in) u6(.in_a(b), .select(k2), .out(n));
+
 assign p=(k1>(k_in-1))?k1-(k_in-1):0;
 assign q=(k2>(k_in-1))?k2-(k_in-1):0;
-assign mm=(k1>k_in-1)?({1'b1,m,1'b1}):a[k_in-1:0];
+assign mm=(k1>k_in-1)?({1'b1,m,1'b1}):a[k_in-1:0]; // know that pos o is 1'b1 and we round up
 assign nn=(k2>k_in-1)?({1'b1,n,1'b1}):b[k_in-1:0];
 
 assign tmp=mm*nn;

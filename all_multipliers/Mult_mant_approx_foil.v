@@ -26,7 +26,7 @@ assign C = (b_normal) ? {2'd0, a_operand[22:0], 23'd0} : {48'd0};
 // Aprox this and we can do well
 //assign D = a_operand[22:0] * b_operand[22:0];
 wire [45:0] ans;
-DRUMk_M_N_s #(9,23,23) m1 (.a(a_operand[22:0]),.b(a_operand[22:0]),.r(ans));
+DRUMk_M_N_s #(4,23,23) m1 (.a(a_operand[22:0]),.b(b_operand[22:0]),.r(ans));
 assign D = {2'b0, ans};
 
 assign product = A + B + D + C;

@@ -47,10 +47,8 @@ assign Overflow = (exponent[8] & !exponent[7] & !zero); //If overall exponent is
 //If sum of both exponents is less than 127 then Underflow condition.
 assign Underflow = (exponent[8] & exponent[7] & !zero); 
 
-assign result = (Exception) ? (32'd0) :
-				(zero) ? ({sign, 31'd0}) :
-				(Overflow) ? {sign, 8'hFF,23'd0} : 
-				(Underflow) ? {sign, 31'd0} : 
+assign result = (Exception | Overflow) ? ({sign, 8'hFF,23'd0}) : // Output NAN
+				(zero | Underflow) ? ({sign, 31'd0}) : // zero
 					{sign, exponent[7:0], product_mantissa};
 
 endmodule
