@@ -6,37 +6,38 @@ module Mult_mant_approx(
 		output [22:0] product_mantissa
 		);
 
-localparam r = 0;
+localparam r = 24;
 
 wire product_round;
+wire [23:0] hidden_a, hidden_b;
 wire [47:0] product, product_normalised; //48 Bits
 wire a_normal, b_normal;
-wire [47:0] A, B, C, D;
 
 // Check hidden bit
 assign a_normal = (|a_operand[30:23]) ? 1'b1 : 1'b0;
 assign b_normal = (|b_operand[30:23]) ? 1'b1 : 1'b0;
 
-// for (X + M1)(Y + M2) => XY + XM2 + YM1 + M1M2
-// Where A + B + C + D
-assign A = (a_normal & b_normal) ? {1'b0, 1'b1, 46'd0} : {48'd0};
-assign B = (a_normal) ? {2'd0, b_operand[22:0], 23'd0} : {48'd0};
-assign C = (b_normal) ? {2'd0, a_operand[22:0], 23'd0} : {48'd0};
-
-// Aprox this and we can do well
-assign D = a_operand[22:0] * b_operand[22:0];
+assign hidden_a = (a_normal) ? ({1'b1, a_operand[22:0]}) : ({1'b0, a_operand[22:0]});
+assign hidden_b = (b_normal) ? ({1'b1, b_operand[22:0]}) : ({1'b0, b_operand[22:0]});
 
 //for the sake of multiplication
-//wire [22:r]a,b;
-//wire [44-2*r-1:0]temp;
+genvar i;
+wire [23:0] a, b;
+generate 
+for (i = 0; i < 24; i = i + 1) begin
+	if (i > 23-r) begin
+		assign a[i] = a_operand[i];
+		assign b[i] = b_operand[i];
+	end
+	else begin
+		assign a[i] = 1'b0;
+		assign b[i] = 1'b0;
+	end
 
-//assign a = a_operand[22:r];
-//assign b = b_operand[22:r];
-//assign temp = a*b;
-//assign D = temp;
+end
+endgenerate
 
-
-assign product = A + B + D + C;
+assign product = a * b;
 
 // Can omit
 assign product_round =  1'b0;//|product_normalised[22:0];  //Ending 22 bits are OR'ed for rounding operation.
