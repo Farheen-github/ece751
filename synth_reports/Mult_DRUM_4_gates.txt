@@ -1,0 +1,176 @@
+
+5. Printing statistics.
+
+=== $paramod$23ce77091f4eff6047cd208af31596ff147b3818\Barrel_Shifter_k_mn ===
+
+   Number of wires:                108
+   Number of wire bits:            214
+   Number of public wires:           4
+   Number of public wire bits:     110
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                152
+     $_ANDNOT_                      66
+     $_AND_                          1
+     $_MUX_                         42
+     $_NAND_                        29
+     $_NOT_                          5
+     $_ORNOT_                        1
+     $_OR_                           8
+
+=== $paramod$23ce77091f4eff6047cd208af31596ff147b3818\dsmk_mn ===
+
+   Number of wires:                141
+   Number of wire bits:            302
+   Number of public wires:          11
+   Number of public wire bits:     172
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                151
+     $_ANDNOT_                      29
+     $_AND_                          8
+     $_MUX_                          4
+     $_NAND_                         1
+     $_NOR_                         15
+     $_NOT_                          8
+     $_ORNOT_                       12
+     $_OR_                          27
+     $_XNOR_                        12
+     $_XOR_                         28
+     $paramod$23ce77091f4eff6047cd208af31596ff147b3818\Barrel_Shifter_k_mn      1
+     $paramod$f790c06b4b6aafb6b9d40313d8c6f0411543ce56\LOD_k      2
+     $paramod$f790c06b4b6aafb6b9d40313d8c6f0411543ce56\Mux_16_3_k      2
+     $paramod$f790c06b4b6aafb6b9d40313d8c6f0411543ce56\P_Encoder_k      2
+
+=== $paramod$502d464fa9e4b6d0e6f86df2434dc31fbe2ae967\DRUMk_M_N_s ===
+
+   Number of wires:                  6
+   Number of wire bits:            192
+   Number of public wires:           6
+   Number of public wire bits:     192
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $paramod$23ce77091f4eff6047cd208af31596ff147b3818\dsmk_mn      1
+
+=== $paramod$f790c06b4b6aafb6b9d40313d8c6f0411543ce56\LOD_k ===
+
+   Number of wires:                 26
+   Number of wire bits:            126
+   Number of public wires:           4
+   Number of public wire bits:     104
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 45
+     $_ANDNOT_                      23
+     $_OR_                          22
+
+=== $paramod$f790c06b4b6aafb6b9d40313d8c6f0411543ce56\Mux_16_3_k ===
+
+   Number of wires:                 87
+   Number of wire bits:            146
+   Number of public wires:           4
+   Number of public wire bits:      63
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 85
+     $_ANDNOT_                      21
+     $_MUX_                         38
+     $_NAND_                         2
+     $_NOT_                          1
+     $_ORNOT_                        4
+     $_OR_                          19
+
+=== $paramod$f790c06b4b6aafb6b9d40313d8c6f0411543ce56\P_Encoder_k ===
+
+   Number of wires:                106
+   Number of wire bits:            164
+   Number of public wires:           3
+   Number of public wire bits:      61
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                108
+     $_ANDNOT_                      33
+     $_NOR_                          5
+     $_NOT_                          5
+     $_ORNOT_                        2
+     $_OR_                          63
+
+=== Mult_drum ===
+
+   Number of wires:                188
+   Number of wire bits:            303
+   Number of public wires:           9
+   Number of public wire bits:     124
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                215
+     $_ANDNOT_                      60
+     $_AND_                         11
+     $_NAND_                         9
+     $_NOR_                         11
+     $_NOT_                          3
+     $_ORNOT_                       35
+     $_OR_                          60
+     $_XNOR_                         6
+     $_XOR_                         19
+     Mult_mant_drum                  1
+
+=== Mult_mant_drum ===
+
+   Number of wires:                132
+   Number of wire bits:            307
+   Number of public wires:           7
+   Number of public wire bits:     182
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                151
+     $_ANDNOT_                      19
+     $_AND_                          1
+     $_MUX_                         46
+     $_NAND_                        12
+     $_NOT_                          2
+     $_ORNOT_                        2
+     $_OR_                          45
+     $_XNOR_                         6
+     $_XOR_                         17
+     $paramod$502d464fa9e4b6d0e6f86df2434dc31fbe2ae967\DRUMk_M_N_s      1
+
+=== design hierarchy ===
+
+   Mult_drum                         1
+     Mult_mant_drum                  1
+       $paramod$502d464fa9e4b6d0e6f86df2434dc31fbe2ae967\DRUMk_M_N_s      1
+         $paramod$23ce77091f4eff6047cd208af31596ff147b3818\dsmk_mn      1
+           $paramod$23ce77091f4eff6047cd208af31596ff147b3818\Barrel_Shifter_k_mn      1
+           $paramod$f790c06b4b6aafb6b9d40313d8c6f0411543ce56\LOD_k      2
+           $paramod$f790c06b4b6aafb6b9d40313d8c6f0411543ce56\Mux_16_3_k      2
+           $paramod$f790c06b4b6aafb6b9d40313d8c6f0411543ce56\P_Encoder_k      2
+
+   Number of wires:               1013
+   Number of wire bits:           2190
+   Number of public wires:          59
+   Number of public wire bits:    1236
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               1136
+     $_ANDNOT_                     328
+     $_AND_                         21
+     $_MUX_                        168
+     $_NAND_                        55
+     $_NOR_                         36
+     $_NOT_                         30
+     $_ORNOT_                       62
+     $_OR_                         348
+     $_XNOR_                        24
+     $_XOR_                         64
+

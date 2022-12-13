@@ -16,7 +16,7 @@ assign operand_a = (|a_operand[30:23]) ? {1'b1,a_operand[22:0]} : {1'b0,a_operan
 assign operand_b = (|b_operand[30:23]) ? {1'b1,b_operand[22:0]} : {1'b0,b_operand[22:0]};
 
 // Calc (approx here)
-DRUMk_M_N_s #(7,24,24) m1 (.a(operand_a),.b(operand_b),.r(product));
+DRUMk_M_N_s #(10,24,24) m1 (.a(operand_a),.b(operand_b),.r(product));
 
 // Can omit
 assign product_round = |product_normalised[22:0];  //Ending 22 bits are OR'ed for rounding operation.
