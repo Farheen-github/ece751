@@ -6,7 +6,7 @@ module Mult_mant_approx(
 		output [22:0] product_mantissa
 		);
 
-localparam r = 24;
+localparam r = 3;
 
 wire product_round;
 wire [23:0] hidden_a, hidden_b;
